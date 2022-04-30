@@ -59,8 +59,8 @@ contract CryptoLendingRequest {
     ) public {
         uint256 interestAmount = _amount * _interestRate / 100;
         uint256 commissionAmount = _amount * _commissionRate / 100;
-        uint256 collateralAmount = _amount * _collateralRate / 100;
         uint256 totalAmount = _amount + interestAmount + commissionAmount;
+        uint256 collateralAmount = totalAmount * _collateralRate / 100;
         request.id = _id;
         request.status = ESTATUS.INITIALIZED;
         request.amount = _amount;
