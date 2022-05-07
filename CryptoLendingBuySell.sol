@@ -6,7 +6,7 @@ import "./CryptoLendingToken.sol";
 
 contract CryptoLendingBuySell {
     // @title CryptoLendingBuySell contract that the user can buy or sell CL token
-    // @noticeThe tokan can be use from borrowers to sell their CL tokens in whatever amount wants. Users can buy the token
+    // @noticeThe tokan can be use from borrowers to sell their CL tokens in whatever amount wants. Users can buy the token 
     // if is available by sending the totalAmount that is provided in BuySellCryptoLending details.
     // the contract to work need the CryptoLendingToken contract and the token smart contract address must be set when the contract is created
     // Also the vault address must be set too and will be use to receive all the comission fees from the tokens that be sold.
@@ -15,7 +15,7 @@ contract CryptoLendingBuySell {
     CryptoLendingToken cryptoLendingToken;
     address vault;
     uint commissionRate = 1;
-
+      
     // enum of buysell status
     enum ESTATUS {
         ACTIVE,
@@ -73,11 +73,11 @@ contract CryptoLendingBuySell {
         return buySellCryptoLendings[_tokenId];
     }
 
-    // @notice The borrower user can sell the CL token that owns to other user.
+    // @notice The borrower user can sell the CL token that owns to other user. 
     // But first the borrower user must be sure that approve this contract to make safeTransfer when the token is sold
     // also the contract getting commission when the token will be sold.
     // @param _tokenId The token id of the erc721 token
-    // @param _amount The amount that the token owners wants to sell the token.
+    // @param _amount The amount that the token owners wants to sell the token. 
     // @event notify through event that there is token for sale.
     function sell(uint256 _tokenId, uint256 _amount) tokenExists(_tokenId) isTokenOwner(_tokenId) public {
         require(!buySellCryptoLendings[_tokenId].exist || (buySellCryptoLendings[_tokenId].exist  && buySellCryptoLendings[_tokenId].status != ESTATUS.ACTIVE), "The token is already for sale");
