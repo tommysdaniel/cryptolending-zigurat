@@ -43,7 +43,7 @@ contract CryptoLending is CryptoLendingToken {
 
     // global variables
     address vault;
-    uint commissionRate = 1;
+    uint commissionRate = 3;
     uint collateralRate = 200;
     uint duration = 365;
 
@@ -105,10 +105,10 @@ contract CryptoLending is CryptoLendingToken {
         return ICryptoLendingRequest(address(cryptoLendingRequests[_id])).get();
     }
 
-    // @notice Creating new crypto lending request using the CryptoLendingRequest contract 
+    // @notice Creating new crypto lending request using the CryptoLendingRequest contract
     // @param _amount The amount of the cryprto lending request
     // @param _interestRate The interest rate of the crypto lending request
-    // @return return the crypto lending request id 
+    // @return return the crypto lending request id
     function requestCryptoLending(uint _amount, uint _interestRate) external returns(uint256 tokenId) {
         require(_amount * 1 ether >= 1 ether, "Amount must higher than 1 ether");
         require(_interestRate > 0, "Interest rate must be higher than 0");
